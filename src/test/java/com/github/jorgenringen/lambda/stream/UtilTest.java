@@ -60,9 +60,7 @@ public class UtilTest {
 
     @Test
     public void shouldFlattenCollectionToSingleCollection() {
-        List<List<String>> input = asList(
-                asList("Duke", "Fred"),
-                asList("John", "George", "Paal"));
+        List<List<String>> input = asList(asList("Duke", "Fred"), asList("John", "George", "Paal"));
 
         List<String> result = Util.flattenToSingleCollection(input);
         assertThat(result, contains("Duke", "Fred", "John", "George", "Paal"));
@@ -70,10 +68,7 @@ public class UtilTest {
 
     @Test
     public void shouldSeparateNamesByComma() {
-        List<Person> input = asList(
-                new Person("Duke"),
-                new Person("Fred"),
-                new Person("John"));
+        List<Person> input = asList(new Person("Duke"), new Person("Fred"), new Person("John"));
 
         String result = Util.separateNamesByComma(input);
         assertThat(result, equalTo("Names: Duke, Fred, John."));
@@ -81,10 +76,7 @@ public class UtilTest {
 
     @Test
     public void shouldFindNameOfOldestPerson() {
-        List<Person> input = asList(
-                new Person("Duke", 10),
-                new Person("Fred", 28),
-                new Person("John", 45));
+        List<Person> input = asList(new Person("Duke", 10), new Person("Fred", 28), new Person("John", 45));
 
         String result = Util.findNameOfOldestPerson(input);
         assertThat(result, equalTo("John"));
@@ -92,11 +84,7 @@ public class UtilTest {
 
     @Test
     public void shouldFilterPeopleLessThan18YearsOld() {
-        List<Person> input = asList(
-                new Person("Duke", 10),
-                new Person("Fred", 28),
-                new Person("John", 45),
-                new Person("Marius", 17));
+        List<Person> input = asList(new Person("Duke", 10), new Person("Fred", 28), new Person("John", 45), new Person("Marius", 17));
 
         List<String> result = Util.filterPeopleLessThan18YearsOld(input);
         assertThat(result, contains("Duke", "Marius"));
@@ -104,10 +92,7 @@ public class UtilTest {
 
     @Test
     public void shouldRetrieveSummaryStatisticsForAge() {
-        List<Person> input = asList(
-                new Person("Duke", 10),
-                new Person("Fred", 28),
-                new Person("John", 45));
+        List<Person> input = asList(new Person("Duke", 10), new Person("Fred", 28), new Person("John", 45));
 
         IntSummaryStatistics summaryStatistics = Util.getSummaryStatisticsForAge(input);
 
